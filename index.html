@@ -20,6 +20,25 @@
  	 	 <div id="bottom-right-cloud"></div>
  	    </footer>
  	 </div>
- 	 
+ 	 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+ 	 <script>
+             $(document).ready(function() {
+				  // Handler for .ready() called.
+				    $(window).resize(function(){
+				        var h = $(window).height();
+				        var w = $(window).width();
+
+				        var div1_h = Math.floor (Math.random() * h);
+				        for(int i=1; i<= 5; i++) {
+				        	var height_div_name =" div"+i+"_h";
+				        	var width_div_name  =" div"+i+"_w";
+				        	
+
+				        }
+
+				        console.log ( "div1_h_random =" + div1_h +"H =" + h + "  W = "+ w);
+				    });
+			 });
+ 	 </script>
  </body>	
 </html>
