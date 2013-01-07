@@ -5,40 +5,98 @@
  	<meta charset='utf-8'>
  	<link rel="stylesheet" href="css/style.css">	
  </head>
- <body>
+ <body onload="init();">
+ 	 <canvas id="canvas" width="600" height="400"></canvas>
  	 <div id="main-container">
- 	 	
  	 	<div id="clouds">
- 	 	  <div class="cloud x1">1</div>
+ 	 	  <!--div class="cloud x1">1</div>
  	 	  <div class="cloud x2">2</div>
  	 	  <div class="cloud x3">3</div>
  	 	  <div class="cloud x4">4</div>
  	 	  <div class="cloud x5">5</div>
+ 	 	</div -->
  	 	</div>
- 	    <footer id="footer"> 
+ 	 </div>	
+ 	 <footer id="footer"> 
  	 	 <div id="bottom-left-cloud"></div>
  	 	 <div id="bottom-right-cloud"></div>
- 	    </footer>
- 	 </div>
+ 	 </footer>
  	 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+ 	 <script src="js/lib/Box2dWeb-2.1.a.3.min.js"></script>
+ 	 <script src="js/box2d-animation.js"></script>
  	 <script>
-             $(document).ready(function() {
-				  // Handler for .ready() called.
-				    $(window).resize(function(){
-				        var h = $(window).height();
-				        var w = $(window).width();
+ 
+  $(document).ready(function() {
 
-				        var div1_h = Math.floor (Math.random() * h);
-				        for(int i=1; i<= 5; i++) {
-				        	var height_div_name =" div"+i+"_h";
-				        	var width_div_name  =" div"+i+"_w";
-				        	
+    var z = 5, tops = [], lefts = [];
 
-				        }
+	var h = $(window).height();
+	var w = $(window).width();
 
-				        console.log ( "div1_h_random =" + div1_h +"H =" + h + "  W = "+ w);
-				    });
-			 });
+	$("#canvas").width(w);
+	$("#canvas").height(h);
+
+	$(window).resize(function() {
+
+		var h = $(window).height();
+		var w = $(window).width();
+
+		$("#canvas").width(w);
+		$("#canvas").height(h);
+  		
+    });
+
+  	function createClouds() {
+  		
+
+	    for (var i = 0; i <= z; i++) {
+	        
+	        var x=0, y=0, j=0;
+	        
+	        while( isTooClose(x, y) && j < 50) {
+	            x = Math.floor(Math.random() * w);
+	            y = Math.floor(Math.random() * h);
+	            j++;
+	        }
+        
+            if (j>=50) { alert('1'); }
+
+	        if ( i != 0 ) 
+	        {
+	        	
+
+	        	$('<div class="cloud x' + i +' ">').css({
+		            position: "absolute",
+		            left: x,
+		            top: y,
+		            fontSize: 'small'
+		        }).html( '' ).appendTo('#clouds');
+				
+				lefts.push(x);
+				tops.push(y);
+
+	        } else {
+	        	lefts.push(x);
+				tops.push(y);
+	        }
+	    }
+  	}
+
+    function isTooClose( x, y ) {
+        for (var i = 0; i < tops.length; i++) {
+            if ( (x + 130 >= lefts[i] && x - 130 <= lefts[i]) &&
+                 (y + 110 >= tops[i] && y - 110 <= tops[i]) ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    createClouds();
+
+
+
+});
  	 </script>
  </body>	
 </html>

@@ -1,5 +1,8 @@
 * { margin :0; padding:0; }
 
+html {
+	height: 100%;
+}
 body{
 	/* to hide the horizontal scroller */
 	overflow: hidden;
@@ -60,7 +63,7 @@ body{
 
 
 .x2 {
-     left: 200px; top: -200px;
+     /* left: 200px; top: -200px; */
 
      -webkit-transform: scale(0.8);
      -moz-transform: scale(0.8);
@@ -74,7 +77,7 @@ body{
 
 
 .x3 {
-	 left: -250px; top:-200px;
+	 /* left: -250px; top:-200px; */
 
      -webkit-transform: scale(0.8);
      -moz-transform: scale(0.8);
@@ -89,7 +92,7 @@ body{
 
 .x4 {
 
-	 left: 470px; top:-250px;
+	/* left: 470px; top:-250px; */
 
      -webkit-transform: scale(0.75);
      -moz-transform: scale(0.75);
@@ -104,7 +107,7 @@ body{
 
 .x5 {
 
-	 left: 750px; top:-150px;
+	 /* left: 750px; top:-150px; */
 
      -webkit-transform: scale(0.8);
      -moz-transform: scale(0.8);
